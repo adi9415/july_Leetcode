@@ -10,6 +10,24 @@ class Solution(object):
         :type digits: List[int]
         :rtype: List[int]
         """
+ # Solution 1       
+        n = len(digits)
+        carry = 0
+        for i in range(n-1,-1,-1):
+            
+            s = (digits[i] + 1) % 10
+            carry = (digits[i] + 1) / 10
+            
+            digits[i] = s
+            if not carry:
+                break
+        if carry:
+            digits.insert(0,carry)
+            
+        return digits
+            
+# Solution 2        
+    
         length  = len(digits)
         num = 0
         for i in digits:
